@@ -56,9 +56,31 @@ include '.includes/toast_notification.php';
             </div>
         </td>
                     </tr>
-
-
-
+ <!--modal untuk hapus data kategori -->
+<div class="modal fade" id="deleteCategory_<?= $category['category_id'];?>" tabindex="-1" arta-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hapus Kategori</h5>
+                <button type="button" class="btn-close" data-bs-dimiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form action="proses_kategori.php" method="POST">
+                    <div>
+                        <p>Tindakan ini tidak bisa di batalkan.</p>
+                        <input type="hidden" name="catID" value="<?=$category['category_id']; ?>"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary"
+                        data-bs-dimiss="modal">Batal</button>
+                        <button type="submit" name="simpan" class="btn btn-primary">Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+                    <!--modal untuk update data kategori -->
 
                     <?php endwhile; ?>
                 </tbody>
@@ -69,7 +91,7 @@ include '.includes/toast_notification.php';
 </div>
 <?php include '.includes/footer.php'; ?>
 
-
+<!-- modal untuk tambah data kategori-->
 <div class="modal fade" id="addCategory" tabindex="-1" arta-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
