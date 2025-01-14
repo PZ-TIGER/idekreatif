@@ -80,8 +80,31 @@ include '.includes/toast_notification.php';
         </div>
     </div>
 </div>
-                    <!--modal untuk update data kategori -->
+<!--modal untuk update data kategori -->
+<div id="editCategory_<?= $category['category_id']; ?>" class="modal fade" tabindex="-1" arta-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">update data kategori</h5>
+                <button type="button" class="btn-close" data-bs-dimiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form action="proses_kategori.php" method="POST">
+                    <div>
+                        <label for="namaKategori" class="form-label">Nama Kategori</label>
 
+                        <input type="text" class="form-control" name="category_name"required/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary"
+                        data-bs-dimiss="modal">Batal</button>
+                        <button type="submit" name="simpan" class="btn btn-primary">update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
                     <?php endwhile; ?>
                 </tbody>
             </table>
