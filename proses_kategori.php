@@ -32,3 +32,27 @@ if (isset($_POST['simpan'])) {
     header('Location: kategori.php');
     exit();
 }
+
+//proses penghapusan kategori
+if (isset($_POST['delete'])) {
+
+    $catID = $_POST['catID'];
+
+
+    $exec = mysqli_query($conn, "DELETE FROM categories WHERE category_id='$catID'");
+    if ($exec) {
+        $_SESSION['notification'] = [
+            'type' => 'primary',
+            'message' => 'kategori berhasil dihapus!'
+        ];
+ }$exec{
+        $_SESSION['notification'] = [
+        'type' => 'danger',
+       'message' => 'Gagal menghapus kategori: ' .mysqli_error($conn)
+     ];
+}
+
+//Redirect kembali ke halaman kategori
+header('Location: kategori.php');
+exit();
+}
